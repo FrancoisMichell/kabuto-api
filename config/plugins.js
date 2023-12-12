@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = ({env}) => ({
   documentation: {
     enabled: true,
     config: {
@@ -20,10 +20,10 @@ module.exports = {
       },
       'x-strapi-config': {
         // Leave empty to ignore plugins during generation
-        plugins: [ 'upload', 'users-permissions'],
+        plugins: [],
         path: '/documentation',
       },
-      servers: [{ url: 'http://localhost:1337/api', description: 'Development server' }],
+      servers: [{ url: (env('MY_HEROKU_URL') ?? 'http://localhost:1337') + '/api', description: 'Development server' }],
       externalDocs: {
         description: 'Find out more',
         url: 'https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html'
@@ -31,4 +31,4 @@ module.exports = {
       security: [ { bearerAuth: [] } ]
     }
   }
-}
+})
