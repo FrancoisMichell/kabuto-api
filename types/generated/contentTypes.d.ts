@@ -846,6 +846,60 @@ export interface ApiInstructorInstructor extends Schema.CollectionType {
   };
 }
 
+export interface ApiKravMagaKravMaga extends Schema.SingleType {
+  collectionName: 'krav_magas';
+  info: {
+    singularName: 'krav-maga';
+    pluralName: 'krav-magas';
+    displayName: 'Texts';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    About: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    History: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    Instructors: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::krav-maga.krav-maga',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::krav-maga.krav-maga',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -867,6 +921,7 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::feed.feed': ApiFeedFeed;
       'api::instructor.instructor': ApiInstructorInstructor;
+      'api::krav-maga.krav-maga': ApiKravMagaKravMaga;
     }
   }
 }
