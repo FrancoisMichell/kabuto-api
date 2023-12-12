@@ -23,7 +23,7 @@ module.exports = ({env}) => ({
         plugins: [],
         path: '/documentation',
       },
-      servers: [{ url: (env('MY_HEROKU_URL') ?? 'http://localhost:1337') + '/api', description: 'Development server' }],
+      servers: [{ url: (env('MY_HEROKU_URL') ?? 'http://localhost:1337/') + 'api', description: 'Development server' }],
       externalDocs: {
         description: 'Find out more',
         url: 'https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html'
