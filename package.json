@@ -12,6 +12,7 @@
   "devDependencies": {},
   "dependencies": {
     "@ckeditor/strapi-plugin-ckeditor": "^0.0.9",
+    "@strapi/plugin-documentation": "4.14.3",
     "@strapi/plugin-i18n": "4.14.3",
     "@strapi/plugin-users-permissions": "4.14.3",
     "@strapi/strapi": "4.14.3",
@@ -24,10 +25,6 @@
   },
   "strapi": {
     "uuid": "1e562b2b-387e-499e-b256-d102f5604f27"
-  },
-  "engines": {
-    "node": "20.10.0",
-    "npm": "10.2.3"
   },
   "license": "MIT"
 }

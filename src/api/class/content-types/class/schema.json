@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classes",
+  "info": {
+    "singularName": "class",
+    "pluralName": "classes",
+    "displayName": "Class",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "WeekDay": {
+      "type": "enumeration",
+      "enum": [
+        "Segunda e quarta",
+        "Terça e Quinta",
+        "Sexta",
+        "Sábado"
+      ],
+      "required": true
+    },
+    "Hour": {
+      "type": "time",
+      "required": true
+    },
+    "Details": {
+      "type": "string"
+    }
+  }
+}

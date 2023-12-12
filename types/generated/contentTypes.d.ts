@@ -709,6 +709,41 @@ export interface ApiCarrouselCarrousel extends Schema.CollectionType {
   };
 }
 
+export interface ApiClassClass extends Schema.CollectionType {
+  collectionName: 'classes';
+  info: {
+    singularName: 'class';
+    pluralName: 'classes';
+    displayName: 'Class';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    WeekDay: Attribute.Enumeration<
+      ['Segunda e quarta', 'Ter\u00E7a e Quinta', 'Sexta', 'S\u00E1bado']
+    > &
+      Attribute.Required;
+    Hour: Attribute.Time & Attribute.Required;
+    Details: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Schema.SingleType {
   collectionName: 'contacts';
   info: {
@@ -726,6 +761,7 @@ export interface ApiContactContact extends Schema.SingleType {
     Facebook: Attribute.String;
     Phone_1: Attribute.String & Attribute.DefaultTo<'(11) 1 11111111'>;
     Phone_2: Attribute.String & Attribute.DefaultTo<'(11) 1 11111111'>;
+    Email: Attribute.Email;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -769,6 +805,47 @@ export interface ApiFeedFeed extends Schema.CollectionType {
   };
 }
 
+export interface ApiInstructorInstructor extends Schema.CollectionType {
+  collectionName: 'instructors';
+  info: {
+    singularName: 'instructor';
+    pluralName: 'instructors';
+    displayName: 'Instructor';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Grade: Attribute.Enumeration<['Verde', 'Azul', 'Marrom', 'Preta']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Verde'>;
+    Info: Attribute.Text;
+    Phone: Attribute.String;
+    classes: Attribute.Relation<
+      'api::instructor.instructor',
+      'oneToMany',
+      'api::class.class'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::instructor.instructor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::instructor.instructor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -786,8 +863,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::carrousel.carrousel': ApiCarrouselCarrousel;
+      'api::class.class': ApiClassClass;
       'api::contact.contact': ApiContactContact;
       'api::feed.feed': ApiFeedFeed;
+      'api::instructor.instructor': ApiInstructorInstructor;
     }
   }
 }

@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instructors",
+  "info": {
+    "singularName": "instructor",
+    "pluralName": "instructors",
+    "displayName": "Instructor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Grade": {
+      "type": "enumeration",
+      "enum": [
+        "Verde",
+        "Azul",
+        "Marrom",
+        "Preta"
+      ],
+      "default": "Verde",
+      "required": true
+    },
+    "Info": {
+      "type": "text"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "classes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::class.class"
+    }
+  }
+}
