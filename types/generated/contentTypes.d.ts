@@ -900,6 +900,32 @@ export interface ApiKravMagaKravMaga extends Schema.SingleType {
   };
 }
 
+export interface ApiLeadLead extends Schema.CollectionType {
+  collectionName: 'leads';
+  info: {
+    singularName: 'lead';
+    pluralName: 'leads';
+    displayName: 'Lead';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Email: Attribute.Email;
+    Phone: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 15;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -922,6 +948,7 @@ declare module '@strapi/types' {
       'api::feed.feed': ApiFeedFeed;
       'api::instructor.instructor': ApiInstructorInstructor;
       'api::krav-maga.krav-maga': ApiKravMagaKravMaga;
+      'api::lead.lead': ApiLeadLead;
     }
   }
 }
