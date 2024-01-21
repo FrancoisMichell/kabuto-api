@@ -734,7 +734,6 @@ export interface ApiClassClass extends Schema.CollectionType {
         'Dura\u00E7\u00E3o: 02h'
       ]
     >;
-    Image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -837,6 +836,7 @@ export interface ApiInstructorInstructor extends Schema.CollectionType {
       'oneToMany',
       'api::class.class'
     >;
+    Image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

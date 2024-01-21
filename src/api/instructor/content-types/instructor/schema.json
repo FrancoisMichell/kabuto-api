@@ -37,6 +37,14 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::class.class"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
