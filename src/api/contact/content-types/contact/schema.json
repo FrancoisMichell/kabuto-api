@@ -23,12 +23,10 @@
     },
     "Phone_1": {
       "type": "string",
-      "regex": "^\\([1-9]{2}\\) (?:[2-8]|9[0-9])[0-9]{3}\\-[0-9]{4}$",
       "default": "(11) 1 11111111"
     },
     "Phone_2": {
       "type": "string",
-      "regex": "^\\([1-9]{2}\\) (?:[2-8]|9[0-9])[0-9]{3}\\-[0-9]{4}$",
       "default": "(11) 1 11111111"
     },
     "Email": {
@@ -38,11 +36,12 @@
       "type": "string"
     },
     "Academy": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }
