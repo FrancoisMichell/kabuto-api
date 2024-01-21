@@ -770,6 +770,7 @@ export interface ApiContactContact extends Schema.SingleType {
     Phone_2: Attribute.String & Attribute.DefaultTo<'(11) 1 11111111'>;
     Email: Attribute.Email;
     Whatsapp: Attribute.String;
+    Academy: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

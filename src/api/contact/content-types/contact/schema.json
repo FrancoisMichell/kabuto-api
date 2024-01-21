@@ -36,6 +36,13 @@
     },
     "Whatsapp": {
       "type": "string"
+    },
+    "Academy": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
