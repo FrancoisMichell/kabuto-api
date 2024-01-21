@@ -727,6 +727,14 @@ export interface ApiClassClass extends Schema.CollectionType {
       Attribute.Required;
     Hour: Attribute.Time & Attribute.Required;
     Details: Attribute.String;
+    Duration: Attribute.Enumeration<
+      [
+        'Dura\u00E7\u00E3o: 01h',
+        'Dura\u00E7\u00E3o: 01:30h',
+        'Dura\u00E7\u00E3o: 02h'
+      ]
+    >;
+    Image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -762,6 +770,7 @@ export interface ApiContactContact extends Schema.SingleType {
     Phone_1: Attribute.String & Attribute.DefaultTo<'(11) 1 11111111'>;
     Phone_2: Attribute.String & Attribute.DefaultTo<'(11) 1 11111111'>;
     Email: Attribute.Email;
+    Whatsapp: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

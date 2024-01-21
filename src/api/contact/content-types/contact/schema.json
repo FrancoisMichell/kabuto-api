@@ -33,6 +33,9 @@
     },
     "Email": {
       "type": "email"
+    },
+    "Whatsapp": {
+      "type": "string"
     }
   }
 }

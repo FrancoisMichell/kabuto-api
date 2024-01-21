@@ -28,6 +28,22 @@
     },
     "Details": {
       "type": "string"
+    },
+    "Duration": {
+      "type": "enumeration",
+      "enum": [
+        "Duração: 01h",
+        "Duração: 01:30h",
+        "Duração: 02h"
+      ]
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
