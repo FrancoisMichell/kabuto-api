@@ -4,7 +4,8 @@
   "info": {
     "singularName": "lead",
     "pluralName": "leads",
-    "displayName": "Lead"
+    "displayName": "Lead",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -21,6 +22,9 @@
     "Phone": {
       "type": "string",
       "maxLength": 15
+    },
+    "AvailableContact": {
+      "type": "string"
     }
   }
 }

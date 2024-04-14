@@ -916,6 +916,7 @@ export interface ApiLeadLead extends Schema.CollectionType {
     singularName: 'lead';
     pluralName: 'leads';
     displayName: 'Lead';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -927,6 +928,7 @@ export interface ApiLeadLead extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 15;
       }>;
+    AvailableContact: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
