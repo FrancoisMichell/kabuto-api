@@ -1,19 +1,10 @@
-FROM node:18-alpine
-# Installing libvips-dev for sharp Compatibility
-RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
-ARG NODE_ENV=development
-ENV NODE_ENV=${NODE_ENV}
-
-WORKDIR /opt/
-COPY package.json package-lock.json ./
-RUN npm config set fetch-retry-maxtimeout 600000 -g
-RUN npm install
-
-WORKDIR /opt/app
+FROM node:lts-alpine
+ENV NODE_ENV=production
+WORKDIR /usr/src/app
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --production --silent && mv node_modules ../
 COPY . .
-ENV PATH /opt/node_modules/.bin:$PATH
-RUN chown -R node:node /opt/app
+EXPOSE 3000
+RUN chown -R node /usr/src/app
 USER node
-RUN ["npm", "run", "build"]
-EXPOSE 1337
-CMD ["npm", "run", "develop"]
+CMD ["npm", "start"]

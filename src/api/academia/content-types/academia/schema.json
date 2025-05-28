@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "academias",
+  "info": {
+    "singularName": "academia",
+    "pluralName": "academias",
+    "displayName": "Academia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Endereco": {
+      "type": "text",
+      "required": true
+    },
+    "Telefone": {
+      "type": "string",
+      "required": true,
+      "minLength": 10
+    },
+    "Whatsapp": {
+      "type": "string",
+      "minLength": 10
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "Facebook": {
+      "type": "string"
+    },
+    "Fotos": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "instrutores": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::instrutor.instrutor",
+      "inversedBy": "academias"
+    },
+    "turmas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::turma.turma",
+      "mappedBy": "academia"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instrutores",
+  "info": {
+    "singularName": "instrutor",
+    "pluralName": "instrutores",
+    "displayName": "Instrutor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Sobre": {
+      "type": "text",
+      "required": false
+    },
+    "Foto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Faixa": {
+      "type": "enumeration",
+      "enum": [
+        "Verde",
+        "Azul",
+        "Marrom",
+        "Preta "
+      ],
+      "default": "Verde",
+      "required": true
+    },
+    "Ativo": {
+      "type": "boolean",
+      "default": true,
+      "required": true,
+      "private": true
+    },
+    "Telefone": {
+      "type": "string",
+      "required": true,
+      "minLength": 10
+    },
+    "turmas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::turma.turma",
+      "mappedBy": "instrutor"
+    },
+    "academias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::academia.academia",
+      "mappedBy": "instrutores"
+    }
+  }
+}
