@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "krav_magas",
+  "info": {
+    "singularName": "krav-maga",
+    "pluralName": "krav-magas",
+    "displayName": "Krav Maga"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Sobre": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Historia": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

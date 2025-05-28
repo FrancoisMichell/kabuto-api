@@ -419,6 +419,36 @@ export interface ApiAcademiaAcademia extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCarrosselCarrossel extends Struct.CollectionTypeSchema {
+  collectionName: 'carrosseis';
+  info: {
+    displayName: 'Carrossel';
+    pluralName: 'carrosseis';
+    singularName: 'carrossel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::carrossel.carrossel'
+    > &
+      Schema.Attribute.Private;
+    Midia: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInstrutorInstrutor extends Struct.CollectionTypeSchema {
   collectionName: 'instrutores';
   info: {
@@ -461,6 +491,84 @@ export interface ApiInstrutorInstrutor extends Struct.CollectionTypeSchema {
         minLength: 10;
       }>;
     turmas: Schema.Attribute.Relation<'oneToMany', 'api::turma.turma'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKravMagaKravMaga extends Struct.SingleTypeSchema {
+  collectionName: 'krav_magas';
+  info: {
+    displayName: 'Krav Maga';
+    pluralName: 'krav-magas';
+    singularName: 'krav-maga';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Historia: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::krav-maga.krav-maga'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Sobre: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
+  collectionName: 'noticias';
+  info: {
+    displayName: 'Noticia';
+    pluralName: 'noticias';
+    singularName: 'noticia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::noticia.noticia'
+    > &
+      Schema.Attribute.Private;
+    Media: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    Texto: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultMarkdown';
+        }
+      >;
+    Thumb: Schema.Attribute.Media<'images'>;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1027,7 +1135,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::academia.academia': ApiAcademiaAcademia;
+      'api::carrossel.carrossel': ApiCarrosselCarrossel;
       'api::instrutor.instrutor': ApiInstrutorInstrutor;
+      'api::krav-maga.krav-maga': ApiKravMagaKravMaga;
+      'api::noticia.noticia': ApiNoticiaNoticia;
       'api::turma.turma': ApiTurmaTurma;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
