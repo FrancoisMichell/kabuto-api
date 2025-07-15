@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carrosseis",
+  "info": {
+    "singularName": "carrossel",
+    "pluralName": "carrosseis",
+    "displayName": "Carrossel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Link": {
+      "type": "string",
+      "required": true
+    },
+    "Midia": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

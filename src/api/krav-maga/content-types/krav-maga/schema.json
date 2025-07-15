@@ -4,37 +4,25 @@
   "info": {
     "singularName": "krav-maga",
     "pluralName": "krav-magas",
-    "displayName": "Texts",
-    "description": ""
+    "displayName": "Krav Maga"
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
   "attributes": {
-    "About": {
+    "Sobre": {
       "type": "customField",
       "options": {
-        "output": "HTML",
-        "preset": "rich"
+        "preset": "defaultHtml"
       },
-      "customField": "plugin::ckeditor.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor"
     },
-    "History": {
+    "Historia": {
       "type": "customField",
       "options": {
-        "output": "HTML",
-        "preset": "rich"
+        "preset": "defaultHtml"
       },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
-    "Instructors": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "rich"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

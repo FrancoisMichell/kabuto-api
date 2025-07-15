@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "turmas",
+  "info": {
+    "singularName": "turma",
+    "pluralName": "turmas",
+    "displayName": "Turma"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Detalhes": {
+      "type": "string"
+    },
+    "Dias": {
+      "type": "enumeration",
+      "enum": [
+        "Segundas e quartas",
+        "Terças e quintas",
+        "Sextas",
+        "Sábados",
+        "Domingos"
+      ],
+      "required": true
+    },
+    "Hora": {
+      "type": "time",
+      "required": true
+    },
+    "Duracao": {
+      "type": "enumeration",
+      "enum": [
+        "Duração: 01h",
+        "Duração: 01:30h",
+        "Duração: 02h"
+      ],
+      "required": true,
+      "default": "Duração: 01h"
+    },
+    "instrutor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::instrutor.instrutor",
+      "inversedBy": "turmas"
+    },
+    "academia": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::academia.academia",
+      "inversedBy": "turmas"
+    }
+  }
+}
